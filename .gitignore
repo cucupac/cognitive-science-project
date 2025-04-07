@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+.env
+.venv
+venv/
+ENV/
+env/
+*.sqlite3
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+*.icloud
+
+# csvode (assuming generated CSVs or data)
+*.csv
+*.tsv
+*.log
+data/
+output/
+
+# Jupyter Notebooks (optional)
+.ipynb_checkpoints/
+
+unfiltered_photos/
