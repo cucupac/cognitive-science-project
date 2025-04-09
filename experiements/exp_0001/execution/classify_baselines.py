@@ -56,7 +56,9 @@ def run_and_record(writer, name, path, tsne_out, debug=False):
 
 if __name__ == "__main__":
     os.makedirs("experiements/exp_0001/results/data/baseline", exist_ok=True)
-    os.makedirs("experiements/exp_0001/results/images/baseline", exist_ok=True)
+    os.makedirs(
+        "experiements/exp_0001/results/images/baseline/scatter_plots", exist_ok=True
+    )
 
     with open(CSV_RESULTS_PATH, mode="w", newline="") as f:
         writer = csv.writer(f)
@@ -66,7 +68,7 @@ if __name__ == "__main__":
             writer,
             "image_high_info",
             "vector_store/image_embeddings/high_info",
-            "experiements/exp_0001/results/images/baseline/scatter_plots/scatter_plots/image_high_info_tsne.png",
+            "experiements/exp_0001/results/images/baseline/scatter_plots/image_high_info_tsne.png",
             debug=True,
         )
         run_and_record(

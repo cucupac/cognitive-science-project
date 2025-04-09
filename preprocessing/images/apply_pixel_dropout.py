@@ -4,7 +4,7 @@ import os
 
 # Paths
 input_dir = "sample_sets/photos/high_info"
-output_dir = "sample_sets/photos/low_info"
+output_dir = "sample_sets/photos/low_info/dropout_50"
 
 # Dropout probability
 dropout_probability = 0.5

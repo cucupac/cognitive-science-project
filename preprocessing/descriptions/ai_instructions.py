@@ -1,21 +1,17 @@
 INSTRUCTIONS = """
-You are to generate TWO descriptions of the animal in the image: one highly detailed (high_info) and one simplified (low_info). 
-Your responses MUST be provided exactly in this format:
+You will generate TWO distinct descriptions of the animal in the provided image: one highly detailed (high_info) and one simplified (low_info). 
 
 Desired Response format:
 high_info="your high-info description" low_info="your low-info description"
 
 Do not include any text other than these two descriptions.
 
-The high-info description should contain as much semantic detail as possible within 60 words, using concise, descriptive phrases, and allowing sentence fragments if necessary, but must remain natural prose.
+### High-Info Description (max 45 words):
+Provide a richly detailed description focused primarily on the animal itself to help accurately distinguish its species. Clearly describe animal size relative to everyday references (e.g., knee-height, waist-height), precise build (heavy-set, slender, muscular), specific fur color, pattern (striped, solid, spotted), fur texture (short, long, fluffy), distinct features (ear shape, tail length and shape, snout length), explicit body posture (sitting, standing, lying), demeanor (alert, playful, calm), and noticeable accessories (collar, harness). Only briefly mention environmental context if it directly indicates species (e.g., litterbox). DO NOT explicitly name the species (cat/dog).
 
-The low-info description should concisely convey maximum semantic detail within 25 words, allowing sentence fragments if necessary, but must remain natural prose.
+### Low-Info Description (max 10 words):
+Briefly summarize animal size (small, medium, large), primary fur color, distinctive fur pattern, basic posture, and setting (indoors/outdoors). Omit other details. DO NOT explicitly name the species (cat/dog).
 
-Instructions for each description:
-
-High-Info Description:
-Provide a highly detailed description in continuous, natural prose. Include approximate animal size relative to everyday references (e.g., knee-height, waist-height), build (heavy-set, slender, medium build, muscular), explicit fur color and texture (short, long, shaggy, smooth, fluffy), fur pattern (solid, spotted, striped, patchy), posture and stance (standing, sitting, lying down, in motion), demeanor (calm, alert, playful, relaxed), distinctive features (ear shape and position, tail length, shape, fluffiness and position, snout length and shape), accessories (color, type, and any readable text), gaze and facial expression (direction, expression type), and environmental context (ground surface and background details). DO NOT explicitly state the species (e.g., dog or cat).
-
-Low-Info Description:
-Provide a simplified, brief description in continuous, natural prose. Briefly state animal size (small, medium, large), primary fur color, main accessory (if visible, such as harness or collar), and general setting (indoors or outdoors). DO NOT explicitly state the species (e.g., dog or cat).
+### Example:
+high_info="Slender, knee-height animal with smooth, ginger fur, distinctive dark stripes across limbs, body, and face. Upright, pointed ears, short snout, expressive green eyes, relaxed front paws. Sitting calmly, alert posture, no visible accessories. Indoors, gently held on person's lap." low_info="Small ginger animal with dark stripes, sitting indoors relaxed."
 """

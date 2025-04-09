@@ -30,7 +30,7 @@ def get_text_embedding(text_path):
 # Define directories to process
 data_dirs = {
     "image_embeddings/high_info": "sample_sets/photos/high_info",
-    "image_embeddings/low_info": "sample_sets/photos/low_info",
+    "image_embeddings/low_info": "sample_sets/photos/low_info/dropout_50",
     "text_embeddings/high_info": "sample_sets/descriptions/high_info",
     "text_embeddings/low_info": "sample_sets/descriptions/low_info",
 }
