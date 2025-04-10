@@ -4,10 +4,10 @@ import os
 
 # Paths
 input_dir = "sample_sets/photos/high_info"
-output_dir = "sample_sets/photos/low_info/dropout_50"
+output_dir = "sample_sets/photos/low_info/dropout_25"
 
 # Dropout probability
-dropout_probability = 0.5
+dropout_probability = 0.25
 
 # Ensure output directory exists
 os.makedirs(output_dir, exist_ok=True)

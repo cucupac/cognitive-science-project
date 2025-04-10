@@ -30,7 +30,10 @@ def get_text_embedding(text_path):
 # Define directories to process
 data_dirs = {
     "image_embeddings/high_info": "sample_sets/photos/high_info",
-    "image_embeddings/low_info": "sample_sets/photos/low_info/dropout_50",
+    "image_embeddings/low_info/dropout_25": "sample_sets/photos/low_info/dropout_25",
+    "image_embeddings/low_info/dropout_50": "sample_sets/photos/low_info/dropout_50",
+    "image_embeddings/low_info/dropout_75": "sample_sets/photos/low_info/dropout_75",
+    "image_embeddings/low_info/dropout_90": "sample_sets/photos/low_info/dropout_90",
     "text_embeddings/high_info": "sample_sets/descriptions/high_info",
     "text_embeddings/low_info": "sample_sets/descriptions/low_info",
 }
@@ -41,6 +44,15 @@ for embed_dir, data_dir in data_dirs.items():
     embed_full_dir = os.path.join("vector_store", embed_dir)
     os.makedirs(embed_full_dir, exist_ok=True)
 
+    # Check if directory already has embeddings
+    existing_files = os.listdir(embed_full_dir)
+    if existing_files:
+        print(
+            f"Directory {embed_full_dir} already has {len(existing_files)} embeddings. Skipping."
+        )
+        continue
+
+    print(f"Generating embeddings for {embed_dir}...")
     data_type = "image" if "photos" in data_dir else "text"
 
     # Process each file

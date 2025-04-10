@@ -3,7 +3,7 @@ import os
 base_dir = "vector_store"
 subdirs = [
     "image_embeddings/high_info",
-    "image_embeddings/low_info",
+    "image_embeddings/low_info/dropout_50",
     "text_embeddings/high_info",
     "text_embeddings/low_info",
 ]

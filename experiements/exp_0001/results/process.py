@@ -48,7 +48,7 @@ def main():
 
     plt.xlabel("Alpha")
     plt.ylabel("Accuracy")
-    plt.title("Combined Representations: Accuracy vs. Alpha")
+    plt.title("Combined Representations: Accuracy vs. Alpha (Log Reg, Dropout 50)")
     plt.legend()
     plt.savefig(OUTPUT_PLOT)
     plt.close()
