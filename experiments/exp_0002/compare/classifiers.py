@@ -18,10 +18,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
-LOGREG_RESULTS = "experiments/exp_0001/results/data/combined/results.csv"
-SVM_RESULTS = "experiments/exp_0002/results/data/combined/results.csv"
-OUTPUT_DIR = "experiments/compare/images/"
-SUMMARY_CSV = "experiments/compare/summary_comparison.csv"
+LOGREG_RESULTS = "experiments/exp_0002/log_reg/results/data/combined/results.csv"
+SVM_RESULTS = "experiments/exp_0002/svm/results/data/combined/results.csv"
+OUTPUT_DIR = "experiments/exp_0002/compare/images/"
+SUMMARY_CSV = "experiments/exp_0002/compare/summary_comparison.csv"
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
@@ -47,9 +47,12 @@ def load_results(path, classifier_name):
 def plot_comparisons(df):
     """
     For each representation, create a figure:
-      - x-axis: alpha (0=All Text, 1=All Image)
+      - x-axis: alpha (0 = All Text, 1 = All Image)
       - y-axis: accuracy
-      - lines: logistic regression vs. svm
+      - lines: Logistic Regression vs. SVM
+    The title consists of two lines:
+      1. "Performance Comparison: Logistic Regression vs. SVM"
+      2. The representation (in bold and within parentheses)
     """
     unique_reps = sorted(df["representation"].unique())
     for rep in unique_reps:
@@ -61,7 +64,7 @@ def plot_comparisons(df):
         fig, ax = plt.subplots(figsize=(6.5, 4.5))
         rep_label = REP_LABELS.get(rep, rep)
 
-        # We'll gather means for auto-scaling
+        # Gather means for auto-scaling
         all_means = []
         for clf in ["logistic_regression", "svm"]:
             clf_df = sub_df[sub_df["classifier"] == clf].copy()
@@ -88,7 +91,20 @@ def plot_comparisons(df):
 
         ax.set_xlabel("Alpha (0 = All Text, 1 = All Image)")
         ax.set_ylabel("Accuracy")
-        ax.set_title(f"Classifier Comparison for:\n{rep_label}", fontsize=11)
+
+        # Create a more intuitive title:
+        # First line: a clear statement of what's being compared.
+        # Second line: The representation label (in bold and within parentheses).
+        rep_title_text = rep_label
+        # Escape spaces so math text preserves them
+        rep_title_text_escaped = rep_title_text.replace(" ", "\\ ")
+        title = (
+            "Performance Comparison: Logistic Regression vs. SVM\n"
+            + r"$\mathbf{(Representation:\ "
+            + rep_title_text_escaped
+            + r")}$"
+        )
+        ax.set_title(title, fontsize=11)
         ax.legend(loc="best")
         plt.tight_layout()
 
